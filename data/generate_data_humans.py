@@ -235,10 +235,12 @@ def generate_database_benthumans(male):
 
 
 if __name__ == '__main__':
-    os.mkdir("dataset-surreal")
-    os.mkdir("dataset-surreal-val")
-    os.mkdir("dataset-bent")
-    os.mkdir("dataset-bent-val")
+    if not os.path.isdir("dataset-surreal"):
+        os.mkdir("dataset-surreal")
+        os.mkdir("dataset-surreal-val")
+        os.mkdir("dataset-bent")
+        os.mkdir("dataset-bent-val")
+    
     ### GENERATE MALE EXAMPLES
     m = load_model("/home/tang/data/surreal/SURREAL/smpl/models/basicmodel_m_lbs_10_207_0_v1.0.0.pkl")
     database = np.load("/home/tang/data/surreal/SURREAL/smpl_data/smpl_data.npz")
