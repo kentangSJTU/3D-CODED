@@ -1,11 +1,11 @@
 import sys
-sys.path.append('/home/thibault/lib/smpl')
+sys.path.append('/home/tang/surreal/SURREAL/smpl')
 
 import pymesh
 import numpy as np
 from smpl_webuser.serialization import load_model
 mesh_ref = pymesh.load_mesh("./template/template_color.ply")
-import cPickle as pickle
+import pickle
 import os
 
 
@@ -240,14 +240,14 @@ if __name__ == '__main__':
     os.mkdir("dataset-bent")
     os.mkdir("dataset-bent-val")
     ### GENERATE MALE EXAMPLES
-    m = load_model("./smpl_data/basicmodel_m_lbs_10_207_0_v1.0.0.pkl")
-    database = np.load("/home/thibault/tmp/SURREAL/smpl_data/smpl_data.npz")
+    m = load_model("/home/tang/data/surreal/SURREAL/smpl/models/basicmodel_m_lbs_10_207_0_v1.0.0.pkl")
+    database = np.load("/home/tang/data/surreal/SURREAL/smpl_data/smpl_data.npz")
     generate_database_surreal(male=True)
     generate_database_benthumans(male=True)
    
     ### GENERATE FEMALE EXAMPLES
-    m = load_model('./smpl_data/basicModel_f_lbs_10_207_0_v1.0.0.pkl')
-    database = np.load("./smpl_data/smpl_data.npz")
+    m = load_model('/home/tang/data/surreal/SURREAL/smpl/models/basicModel_f_lbs_10_207_0_v1.0.0.pkl')
+    database = np.load("/home/tang/data/surreal/SURREAL/smpl_data/smpl_data.npz")
     generate_database_surreal(male=False)
     generate_database_benthumans(male=False)
    
